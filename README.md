@@ -1,2 +1,0 @@
-# TestsHazerta
-Created with CodeSandbox
