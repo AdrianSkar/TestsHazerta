@@ -1,16 +1,166 @@
 <!DOCTYPE html>
+<!--Adrian Skar 2019 -->
 <html>
+  <head>
+    <title>Tests Hazerta</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+    function innerFun() {
+  // $("#objetivo").html("Selector JQuery");
+  document.getElementById("objetivo").innerHTML =
+    "Este párrafo se ha modificado utilizando el atributo <code>onclick</code> para llamar a una función declarada en <code> head</code>. Sin un eventListener, el código de index.js no puede ser leído ya que está al final del documento. Es decir, la función aún no existe.";
+}
 
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-</head>
+    </script>
+  </head>
 
-<body>
-	<div id="app"></div>
+  <body>
+    <div class="container">
+      <div class="jumbotron">Ejercicios Hazerta</div>
+      <div id="app"></div>
+      <!-- Calculo de area -->
+      <div class="inlineMe">
+        <button class="toggle btn btn-info">Calculo de area</button>
+        <section class="toggleContent">
+          <div class="container">
+            <button
+              type="button"
+              onclick='alert("Bienvenido!")'
+              class="btn btn-success"
+            >
+              Dar la bienvenida
+            </button>
+            <button
+              type="button"
+              onclick='alert("Hasta luego!")'
+              class="btn btn-warning"
+            >
+              Despedirse
+            </button>
+          </div>
+          <input type="text" placeholder="Ingrese base" id="datoUno" />
+          <input type="text" placeholder="Ingrese altura" id="datoDos" />
+          <button type="button" id="calcularArea" class="btn btn-dark">
+            Calcular area
+          </button>
+          <button type="button" id="resetArea" class="btn btn-dark">
+            Reset
+          </button>
+          <p>El resultado es: <span id="areaResultado"></span></p>
+        </section>
+      </div>
+      <div class="inlineMe">
+        <button class="toggle btn btn-info">Calculo de area (solo JS)</button>
+        <section class="toggleContent">
+          <div class="container">
+            <button
+              type="button"
+              onclick='alert("Bienvenido!")'
+              class="btn btn-success"
+            >
+              Dar la bienvenida
+            </button>
+            <button
+              type="button"
+              onclick='alert("Hasta luego!")'
+              class="btn btn-warning"
+            >
+              Despedirse
+            </button>
+          </div>
+          <input type="text" placeholder="Ingrese base" id="datoUnoJS" />
+          <input type="text" placeholder="Ingrese altura" id="datoDosJS" />
+          <button type="button" id="calcularAreaJS">
+            Calcular area
+          </button>
+          <button type="button" id="resetAreaJS">Reset</button>
+          <p>El resultado es: <span id="areaResultadoJS"></span></p>
+        </section>
+      </div>
+      <br /><br />
+      <!-- Calculadora simple -->
+      <div class="inlineMe next">
+        <button class="toggle btn btn-info">Calculadora simple</button>
+        <section class="toggleContent">
+          <div class="container">
+            <input
+              type="text"
+              placeholder="Ingrese un número"
+              id="calcVal"
+              class="calcClass"
+            />
+            <input
+              type="text"
+              placeholder="Ingrese un número"
+              id="calcVal2"
+              class="calcClass"
+            />
 
-	<script src="src/index.js">
-	</script>
-</body>
-
+            <button type="button" id="suma" value="+">
+              +
+            </button>
+            <button type="button" id="resta" value="-">
+              -
+            </button>
+            <button type="button" id="mult" value="*">
+              *
+            </button>
+            <button type="button" id="div" value="/">
+              /
+            </button>
+            <button type="button" id="resetCalc">Reset</button>
+            <p>El resultado es: <span id="calcResult"></span></p>
+          </div>
+        </section>
+      </div>
+      <!-- End calc -->
+      <br /><br />
+      <!-- Inner elements -->
+      <div class="inlineMe next">
+        <button class="btn btn-info toggle"">
+          Cambiar elemento (inner)
+        </button>
+        <section class="toggleContent">
+          <div class="container">
+            <button class="btn btn-info" onclick="innerFun()">Cambiar párrafo</button>
+            <button class="btn btn-info" id="inner2">Cambiar párrafo 2</button>
+            <button class="btn btn-info" id="inner3">Cambiar párrafo 3</button>
+            <p id="objetivo">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+              repellat, natus distinctio ipsa, maxime quisquam voluptates
+              officia dicta voluptatibus, voluptate architecto expedita corporis
+              pariatur neque sit nostrum accusantium obcaecati itaque.
+            </p>
+          </div>
+        </section>
+      </div>
+      <br><br>
+      <!-- Arrays -->
+      <div class="inlineMe next">
+        <button class="btn btn-info toggle">Arrays notas</button>
+        <section class="toggleContent">
+          <div class="container">
+            <button id="notas" class="btn btn-dark">Ingresar e imprimir posiciones de notas en un array</button>
+            <button id="ventasInput" class="btn btn-dark">Ingresar ventas</button>
+            <button id="ventasOutput" class="btn btn-dark">Listar todas las ventas</button>
+            <button id="ventasMes" class="btn btn-dark">Ingresar ventas</button>
+            <p id="targetArrays"></p>
+          </div>
+        </section>
+      </div>
+      
+      <script src="src/index.js"></script>
+    </div>
+  </body>
 </html>
