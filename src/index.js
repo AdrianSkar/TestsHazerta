@@ -141,3 +141,10 @@ $("#ventasInput").click(function() {
     ventas[i] = prompt("Ingrese las ventas de " + meses[i]);
   }
 });
+$("#ventasOutput").click(function() {
+  for (let y = 0; y < ventas.length; y++) {
+    $("#targetArrays").append(
+      "<li>Las ventas de " + meses[y] + " fueron de " + ventas[y] + ".</li>"
+    );
+  }
+});
