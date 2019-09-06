@@ -1,3 +1,4 @@
+/*eslint-env jquery*/
 window.onload = function() {
   $("#enviar").on("click", validarFormulario);
 };
@@ -5,30 +6,49 @@ window.onload = function() {
 function validarFormulario() {
   $("#formulario").validate({
     rules: {
-      dni: {
+      dniVal: {
         required: true
       },
-      nombre: {
-        maxlength: 100
+      nombreVal: {
+        maxlength: 100,
+        required: true
       },
-      nota: {
+      notaVal: {
         digits: true,
         min: 0,
         max: 10
       },
-      edad: {
-        digits: true
+      edadVal: {
+        digits: true,
+        min: 0,
+        max: 100
       },
-      email: {
-        email: true
+      emailVal: {
+        email: true,
+        maxlength: 50
       }
     },
     messages: {
-      dni: {
+      dniVal: {
         required: "El dni es obligatorio"
       },
-      nombre: {
-        maxlength: "El nombre es muy largo"
+      nombreVal: {
+        maxlength: "El nombre es muy largo",
+        required: "El nombre es obligatorio"
+      },
+      notaVal: {
+        digits: "La nota debe ser en numeros",
+        min: "Debe ser mayor que 0",
+        max: "Debe ser menor que 10"
+      },
+      edadVal: {
+        digits: "La edad debe tener solo numeros",
+        min: "Debe ser mayor que 0",
+        max: "Debe ser menor que 100"
+      },
+      emailVal: {
+        email: "Debe ser un email valido",
+        maxlength: "Debe tener maximo 50 caracteres"
       }
     }
   });
