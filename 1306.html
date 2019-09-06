@@ -143,18 +143,27 @@
       let validateCP = document.getElementById("validarCP");
       let cp = document.getElementById("cp");
       window.addEventListener("load", function() {
-        modify.addEventListener("mouseover", rojo);
-        modify.addEventListener("mouseout", verde);
+        // modify.addEventListener("mouseover", rojo);
+        // modify.addEventListener("mouseout", verde);
+        modify.addEventListener("mouseover", function() {
+          cambiaColor("Crimson");
+        });
+        modify.addEventListener("mouseout", function() {
+          cambiaColor("LightGreen");
+        });
         validateMe.addEventListener("click", validarF);
         validateDNI.addEventListener("click", valiDNI);
         validateCP.addEventListener("click", valiCP);
       });
-      function rojo() {
-        modify.style.backgroundColor = "Crimson";
+      function cambiaColor(color) {
+        modify.style.backgroundColor = color;
       }
-      function verde() {
-        modify.style.backgroundColor = "LightGreen";
-      }
+      // function rojo() {
+      //   modify.style.backgroundColor = "Crimson";
+      // }
+      // function verde() {
+      //   modify.style.backgroundColor = "LightGreen";
+      // }
       function validarF() {
         if (document.getElementById("nombre").value === "") {
           alert("Debe rellenar el nombre");
