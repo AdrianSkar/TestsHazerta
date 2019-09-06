@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- Examen UF1305 y 1306 Adrian Rodriguez -->
+  <!-- Examen UF1305 Adrian Rodriguez 2.4 += var-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>Document</title>
   </head>
   <body>
-    Test
+    <p>Variables:</p>
+    <button id="muestraVars">muestraVars</button><br />
+    <div id="vars"></div>
+    <p>Maor o igual que 50:</p>
+    <button id="mayor50">>=50</button><br /><br />
+    <p>Son iguales:</p>
+    <form action="post">
+      <label for="texto1">Texto1: </label>
+      <input type="text" id="texto1" name="texto1" /><br />
+      <label for="texto2">Texto2: </label>
+      <input type="text" id="texto2" name="texto2" /><br />
+      <button type="button" id="comprobarT">Comprobar si son iguales</button>
+    </form>
+    <p>Ventas:</p>
+    <button type="button" id="ventas">Pedir y calcular promedio</button>
+
+    <script>
+      window.addEventListener("load", function() {
+        alert("Página cargada");
+        let showV = document.getElementById("muestraVars");
+        showV.addEventListener("click", muestraVars);
+
+        let mayor50 = document.getElementById("mayor50");
+        mayor50.addEventListener("click", mayorF);
+
+        let texto1 = document.getElementById("texto1");
+        let texto2 = document.getElementById("texto2");
+        let comprob = document.getElementById("comprobarT");
+        comprob.addEventListener("click", compruebaMe);
+
+        let ventas = document.getElementById("ventas");
+        ventas.addEventListener("click", ventasCalc);
+      });
+      let numero1 = 1;
+      let nombre1 = "nombre1";
+      function muestraVars() {
+        //document.getElementById("vars").innerHTML =
+        alert("numero1 es: " + numero1 + " y nombre1 es: " + nombre1);
+      }
+
+      function mayorF() {
+        if (parseFloat(prompt("Ingrese su número")) >= 50) {
+          alert("Es mayor");
+          return;
+        }
+        alert("No es mayor");
+      }
+
+      function compruebaMe() {
+        texto1.value === texto2.value
+          ? alert("Son iguales")
+          : alert("No son iguales");
+      }
+
+      function ventasCalc() {
+        let acum = 0;
+        for (let i = 1; i < 7; i++) {
+          acum += parseFloat(prompt("Ingrese ventas " + i));
+        }
+        alert("La media de ventas es: " + acum / 6);
+      }
+    </script>
   </body>
-  <script type="text/javascript">
-   
-  </script>
 </html>
