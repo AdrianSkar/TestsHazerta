@@ -5,7 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"
+      integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="validate.js"></script>
     <title>Examen UF1306 Adrian Rodriguez</title>
     <style>
       #modi {
@@ -58,13 +68,85 @@
       <br /><br />
       <input type="button" id="validar" name="enviar" value="Validar" /><br />
     </form>
+
+    <h2>Dni:</h2>
+    <div>
+      <label for="dni">Dni: </label>
+      <input type="text" id="dni" name="dni" placeholder="dni" />
+      <br /><br />
+      <input
+        type="button"
+        id="validarDNI"
+        name="validarDNI"
+        value="ValidarDNI"
+      /><br />
+    </div>
+
+    <h2>Codigo postal:</h2>
+    <div>
+      <label for="cp">Codigo: </label>
+      <input type="text" id="cp" name="cp" placeholder="cp" />
+      <br /><br />
+      <input
+        type="button"
+        id="validarCP"
+        name="validarCP"
+        value="ValidarCP"
+      /><br />
+    </div>
+    <h2>JSValidate</h2>
+    <form action="get" id="formulario">
+      <label for="dniVal">Dni: </label>
+      <input
+        type="text"
+        id="dniVal"
+        name="dniVal"
+        placeholder="dniVal"
+      /><br /><br />
+      <label for="nombreVal">Nombre: </label>
+      <input
+        type="text"
+        id="nombreVal"
+        name="nombreVal"
+        placeholder="nombreVal"
+      /><br /><br />
+      <label for="notaVal">Nota: </label>
+      <input
+        type="text"
+        id="notaVal"
+        name="notaVal"
+        placeholder="notaVal"
+      /><br /><br />
+      <label for="edadVal">Edad: </label>
+      <input
+        type="text"
+        id="edadVal"
+        name="edadVal"
+        placeholder="edadVal"
+      /><br /><br />
+      <label for="emailVal">Email: </label>
+      <input
+        type="text"
+        id="emailVal"
+        name="emailVal"
+        placeholder="emailVal"
+      /><br /><br />
+      <input type="button" id="enviar" name="enviar" value="enviar" /><br />
+    </form>
+
     <script>
       let modify = document.getElementById("modiJS");
       let validateMe = document.getElementById("validar");
+      let validateDNI = document.getElementById("validarDNI");
+      let dni = document.getElementById("dni");
+      let validateCP = document.getElementById("validarCP");
+      let cp = document.getElementById("cp");
       window.addEventListener("load", function() {
         modify.addEventListener("mouseover", rojo);
         modify.addEventListener("mouseout", verde);
         validateMe.addEventListener("click", validarF);
+        validateDNI.addEventListener("click", valiDNI);
+        validateCP.addEventListener("click", valiCP);
       });
       function rojo() {
         modify.style.backgroundColor = "Crimson";
@@ -85,6 +167,14 @@
         } else {
           alert("Valido");
         }
+      }
+      function valiDNI() {
+        let regDNI = /^[0-9]{8,8}[A-Za-z]$/g;
+        regDNI.test(dni.value) ? alert("Dni valido") : alert("Dni no válido");
+      }
+      function valiCP() {
+        let regCP = /0[1-9][0-9]{3}|[1-4][0-9]{4}|5[0-2][0-9]{3}/g;
+        regCP.test(cp.value) ? alert("CP valido") : alert("CP no válido");
       }
     </script>
   </body>
