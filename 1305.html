@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>Document</title>
+    <title>Examen UF1305 Adrian Rodriguez</title>
   </head>
   <body>
     <p>Variables:</p>
@@ -23,7 +23,13 @@
       <button type="button" id="comprobarT">Comprobar si son iguales</button>
     </form>
     <p>Ventas:</p>
-    <button type="button" id="ventas">Pedir y calcular promedio</button>
+    <button type="button" id="ventas">Pedir y calcular promedio</button><br />
+    <p>Modificaciones:</p>
+    <button type="button" id="red">rojo</button>
+    <button type="button" id="blue">azul</button>
+    <button type="button" id="dato">dato</button>
+
+    <p id="change">El examen mola!</p>
 
     <script>
       window.addEventListener("load", function() {
@@ -41,20 +47,30 @@
 
         let ventas = document.getElementById("ventas");
         ventas.addEventListener("click", ventasCalc);
+
+        let red = document.getElementById("red");
+        let blue = document.getElementById("blue");
+        red.addEventListener("click", colorF);
+        blue.addEventListener("click", colorF);
+
+        let datoArr = document.getElementById("dato");
+        datoArr.addEventListener("click", checkArr);
       });
+
       let numero1 = 1;
       let nombre1 = "nombre1";
+      let miArr = [100, 87, 90, 105, 10];
       function muestraVars() {
         //document.getElementById("vars").innerHTML =
         alert("numero1 es: " + numero1 + " y nombre1 es: " + nombre1);
       }
 
       function mayorF() {
-        if (parseFloat(prompt("Ingrese su número")) >= 50) {
-          alert("Es mayor");
+        if (parseInt(prompt("Ingrese su número")) >= 50) {
+          alert("Es mayor que 50");
           return;
         }
-        alert("No es mayor");
+        alert("No es mayor que 50");
       }
 
       function compruebaMe() {
@@ -69,6 +85,19 @@
           acum += parseFloat(prompt("Ingrese ventas " + i));
         }
         alert("La media de ventas es: " + acum / 6);
+      }
+
+      function colorF() {
+        document.getElementById("change").style.color = this.id;
+      }
+
+      function checkArr() {
+        let query = parseInt(prompt("¿Qué posición quiere comprobar?"));
+        query > miArr.length
+          ? alert("No es posible")
+          : alert(
+              "La posición " + query + " corresponde al valor " + miArr[query]
+            );
       }
     </script>
   </body>
