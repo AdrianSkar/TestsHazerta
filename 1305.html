@@ -12,7 +12,7 @@
     <p>Variables:</p>
     <button id="muestraVars">muestraVars</button><br />
     <div id="vars"></div>
-    <p>Maor o igual que 50:</p>
+    <p>Mayor o igual que 50:</p>
     <button id="mayor50">>=50</button><br /><br />
     <p>Son iguales:</p>
     <form action="post">
@@ -93,7 +93,7 @@
 
       function checkArr() {
         let query = parseInt(prompt("¿Qué posición quiere comprobar?"));
-        query > miArr.length
+        query > miArr.length - 1
           ? alert("No es posible")
           : alert(
               "La posición " + query + " corresponde al valor " + miArr[query]
