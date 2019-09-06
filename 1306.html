@@ -7,8 +7,85 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <title>Examen UF1306 Adrian Rodriguez</title>
+    <style>
+      #modi {
+        width: 300px;
+        height: 300px;
+        background-color: LightGreen;
+        transition: all 2s ease-in;
+      }
+      #modi:hover {
+        width: 400px;
+        height: 400px;
+        background-color: Crimson;
+      }
+      #modiJS {
+        width: 300px;
+        height: 300px;
+        background-color: LightGreen;
+      }
+    </style>
   </head>
   <body>
-    <script></script>
+    <h2>Validacion:</h2>
+    <p>
+      La web casika.es
+      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fcasika.es%2F"
+        >no pasa la validación.</a
+      >
+    </p>
+    <h2>Estructura:</h2>
+    <p>
+      Separando en distintas carpetas los scripts, las hojas de estilo, los
+      recursos multimedia y los archivos .html Por ejemplo: <br />
+      <img
+        src="https://mdn.mozillademos.org/files/9231/file-structure.png"
+        alt="file structure web"
+        width="600"
+      />
+    </p>
+    <h2>Cambio de propiedades:</h2>
+    <div id="modi">Modificable CSS</div>
+    <div id="modiJS">Modificable JS</div>
+    <br /><br />
+    <h2>Formulario:</h2>
+    <form action="get">
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" />
+      <br /><br />
+      <label for="edad">Edad: </label>
+      <input type="text" id="edad" name="edad" placeholder="Edad" />
+      <br /><br />
+      <input type="button" id="validar" name="enviar" value="Validar" /><br />
+    </form>
+    <script>
+      let modify = document.getElementById("modiJS");
+      let validateMe = document.getElementById("validar");
+      window.addEventListener("load", function() {
+        modify.addEventListener("mouseover", rojo);
+        modify.addEventListener("mouseout", verde);
+        validateMe.addEventListener("click", validarF);
+      });
+      function rojo() {
+        modify.style.backgroundColor = "Crimson";
+      }
+      function verde() {
+        modify.style.backgroundColor = "LightGreen";
+      }
+      function validarF() {
+        if (document.getElementById("nombre").value === "") {
+          alert("Debe rellenar el nombre");
+        } else if (isNaN(document.getElementById("edad").value)) {
+          alert("La edad debe ser un número");
+        } else if (
+          document.getElementById("edad").value < 0 ||
+          document.getElementById("edad").value > 120
+        ) {
+          alert("La edad debe estar entre 0 y 120");
+        } else {
+          alert("Valido");
+        }
+      }
+    </script>
   </body>
 </html>
